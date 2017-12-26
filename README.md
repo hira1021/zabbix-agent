@@ -16,7 +16,6 @@ More than 2.4.1 of the version of ansibl is recommended.
 ### Run
 ansible-playbook -i inventory/inventory.ini zabbix_agent.yml
 
-## Hints
 ### Options
 ansible-playbook -i inventory/inventory.ini zabbix_agent.yml --tags common
 Only specific role is carried out.
