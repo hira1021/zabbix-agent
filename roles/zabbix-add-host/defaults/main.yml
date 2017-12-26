@@ -1,0 +1,20 @@
+---
+# defaults file for zabbix-add-host
+zabbix_url: http://192.168.215.174/zabbix
+zabbix_hosts:
+    - ip: 192.168.215.157
+      hostname: ansible-target
+      screen_name: ansible-target
+zabbix_templates:
+    - Template OS Linux
+interfaces: 
+    - type: 1
+      main: 1
+      useip: 1
+      dns: ""
+      port: "10050"
+login_user: Admin
+login_password: zabbix
+graph_names:
+    - abc123
+create_screen: false

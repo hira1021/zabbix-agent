@@ -1,0 +1,24 @@
+---
+# tasks file for zabbix-add-host
+- set_fact: 
+    tmp_interface:  "{{ item|combine({'ip':outer_item.ip})}}"
+  with_items: "{{ interfaces }}"
+  register: result
+
+- set_fact: 
+    modified_interfaces:   "{{ result.results | join(',', attribute='ansible_facts.tmp_interface') }}" 
+
+- local_action:
+    module: zabbix_host
+    server_url: "{{ zabbix_url }}"
+    login_user: "{{ login_user }}"
+    login_password: "{{ login_password }}"
+    host_name: "{{ outer_item.hostname }}"
+    host_groups:
+        - Linux servers
+    link_templates:
+        - Template OS Linux
+    status: enabled
+    state: present
+    interfaces:
+        [ "{{ modified_interfaces }}" ]

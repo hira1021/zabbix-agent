@@ -1,0 +1,7 @@
+common:
+  - timezone: "Asia/Tokyo"
+    timeservers:
+      - "133.243.238.164"
+      - "133.243.238.244"
+zabbix_setup:
+  -  zabbix_server_ip: "192.168.215.174"
